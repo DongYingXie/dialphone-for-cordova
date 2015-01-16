@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  id="com.mtel.debbie.dialphone"
+  version="0.0.1">
+
+    <name>CallPhone</name>
+    <description> Description</description>
+    <js-module src="www/callphone.js" name="CallPhone">
+        <clobbers target="DialphonePlugin" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CallPhone">
+                <param name="ios-package" value="CallPhone"/>
+            </feature>
+    </config-file>
+    <header-file src="src/ios/CallPhone.h"/>
+    <source-file src="src/ios/CallPhone.m" />
+    </platform>
+     <platform name="android">
+              <config-file parent="/*" target="res/xml/config.xml">
+             <feature name="CallPhone">
+                 <param name="android-package" value="cn.debi.cordova.CallPhone"/>
+             </feature>
+        </config-file>
+        <source-file src="src/android/CallPhone.java" target-dir="src/cn/debi/cordova"/>
+    </platform>
+</plugin>
